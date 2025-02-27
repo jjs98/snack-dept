@@ -17,8 +17,17 @@ public class DeptService(IDbContextFactory<SnackDeptDbContext> contextFactory) :
     public async Task UpdateDept(Dept dept)
     {
         var context = contextFactory.CreateDbContext();
-        context.Depts.Update(dept);
-        await context.SaveChangesAsync();
+        await context
+            .Depts.Where(x => x.Id == dept.Id)
+            .ExecuteUpdateAsync(x =>
+                x.SetProperty(p => p.Amount, dept.Amount)
+                    .SetProperty(p => p.Reason, dept.Reason)
+                    .SetProperty(p => p.Description, dept.Description)
+                    .SetProperty(p => p.UserId, dept.UserId)
+                    .SetProperty(p => p.DeptDate, dept.DeptDate)
+                    .SetProperty(p => p.RedemptionDate, dept.RedemptionDate)
+                    .SetProperty(p => p.UpdatedAt, DateTime.UtcNow)
+            );
     }
 
     public async Task DeleteDept(int id)

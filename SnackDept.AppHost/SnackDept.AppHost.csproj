@@ -13,13 +13,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SnackDept.ApiService\SnackDept.ApiService.csproj" />
-    <ProjectReference Include="..\SnackDept.Web\SnackDept.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" Version="9.1.0" />
+    <PackageReference Include="Aspire.Hosting.NodeJs" Version="9.1.0" />
     <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="9.1.0" />
     <PackageReference Include="Aspire.Hosting.Redis" Version="9.1.0" />
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.NodeJS.Extensions" Version="9.2.0" />
   </ItemGroup>
 
 </Project>

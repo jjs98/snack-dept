@@ -1,10 +1,22 @@
-﻿namespace SnackDept.ApiService.Entities;
+﻿using SnackDept.Domain.Dtos.User;
+
+namespace SnackDept.ApiService.Entities;
 
 public class User
 {
-    public required int Id { get; set; }
+    public int Id { get; set; }
     public required string Name { get; set; }
     public IEnumerable<Dept> Depts { get; set; } = [];
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
+
+    public UserDto ToDto()
+    {
+        return new UserDto()
+        {
+            Id = Id,
+            Name = Name,
+            Depts = Depts.Select(dept => dept.ToDto())
+        };
+    }
 }
