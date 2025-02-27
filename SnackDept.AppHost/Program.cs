@@ -16,6 +16,7 @@ var apiService = builder
 
 builder
     .AddPnpmApp("webfrontend", "../SnackDept.Client")
+    .WithHttpEndpoint(env: "PORT")
     .WithExternalHttpEndpoints()
     .WithReference(cache)
     .WaitFor(cache)
