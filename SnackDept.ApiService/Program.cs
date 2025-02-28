@@ -12,8 +12,6 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddProblemDetails();
 
-//builder.AddNpgsqlDbContext<SnackDeptDbContext>("pgsql");
-
 builder.Services.AddPooledDbContextFactory<SnackDeptDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("snackdept"));
