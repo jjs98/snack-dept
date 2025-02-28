@@ -23,7 +23,10 @@ public class UserService(IDbContextFactory<SnackDeptDbContext> contextFactory) :
     public async Task<List<User>> GetUsersWithDepts()
     {
         var context = contextFactory.CreateDbContext();
-        return await context.Users.AsNoTracking().Include(x => x.Depts).ToListAsync();
+        return await context
+            .Users.AsNoTracking()
+            .Include(x => x.Depts.OrderBy(x => x.DeptDate))
+            .ToListAsync();
     }
 
     public async Task UpdateUser(User user)

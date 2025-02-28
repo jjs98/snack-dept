@@ -15,11 +15,12 @@ public class DeptsConfig : IEntityTypeConfiguration<Dept>
         builder.Property(x => x.UserId).IsRequired();
         builder.Property(x => x.Reason);
         builder.Property(x => x.Description);
-        builder.Property(x => x.DeptDate);
+        builder.Property(x => x.DeptDate).IsRequired();
         builder.Property(x => x.CreatedAt).HasDefaultValueSql("NOW()").ValueGeneratedOnAdd();
         builder
             .Property(x => x.UpdatedAt)
             .HasDefaultValueSql("NOW()")
             .ValueGeneratedOnAddOrUpdate();
+        builder.HasOne(x => x.User).WithMany(x => x.Depts).HasForeignKey(x => x.UserId);
     }
 }

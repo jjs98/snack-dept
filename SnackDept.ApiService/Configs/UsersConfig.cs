@@ -12,7 +12,6 @@ public class UsersConfig : IEntityTypeConfiguration<User>
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id).UseIdentityColumn();
         builder.Property(x => x.Name).IsRequired();
-        builder.HasMany(x => x.Depts).WithOne().HasForeignKey(x => x.UserId);
         builder.Property(x => x.CreatedAt).HasDefaultValueSql("NOW()").ValueGeneratedOnAdd();
         builder
             .Property(x => x.UpdatedAt)

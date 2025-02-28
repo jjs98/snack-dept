@@ -1,3 +1,4 @@
+using System.Reflection;
 using FastEndpoints;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
@@ -18,10 +19,8 @@ builder.Services.AddPooledDbContextFactory<SnackDeptDbContext>(options =>
 });
 
 builder.Services.AddHostedService<MigrationService>();
-
 builder.Services.AddScoped<IDeptService, DeptService>();
 builder.Services.AddScoped<IUserService, UserService>();
-
 builder.Services.AddFastEndpoints();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddOpenApi();

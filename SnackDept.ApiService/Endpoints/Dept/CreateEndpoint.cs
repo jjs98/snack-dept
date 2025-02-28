@@ -1,6 +1,6 @@
 ﻿using FastEndpoints;
+using SnackDept.ApiService.Dtos.Dept;
 using SnackDept.ApiService.Services;
-using SnackDept.Domain.Dtos.Dept;
 
 namespace SnackDept.ApiService.Endpoints.Dept;
 
