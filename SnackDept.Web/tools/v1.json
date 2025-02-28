@@ -15,9 +15,7 @@
   "paths": {
     "/api/user": {
       "post": {
-        "tags": [
-          "SnackDept.ApiService"
-        ],
+        "tags": ["SnackDept.ApiService"],
         "operationId": "SnackDeptApiServiceEndpointsUserCreateEndpoint",
         "requestBody": {
           "content": {
@@ -36,9 +34,7 @@
         }
       },
       "get": {
-        "tags": [
-          "SnackDept.ApiService"
-        ],
+        "tags": ["SnackDept.ApiService"],
         "operationId": "SnackDeptApiServiceEndpointsUserGetEndpoint",
         "responses": {
           "200": {
@@ -59,9 +55,7 @@
     },
     "/api/user/{Id}": {
       "delete": {
-        "tags": [
-          "SnackDept.ApiService"
-        ],
+        "tags": ["SnackDept.ApiService"],
         "operationId": "SnackDeptApiServiceEndpointsUserDeleteEndpoint",
         "responses": {
           "204": {
@@ -70,9 +64,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "SnackDept.ApiService"
-        ],
+        "tags": ["SnackDept.ApiService"],
         "operationId": "SnackDeptApiServiceEndpointsUserUpdateEndpoint",
         "requestBody": {
           "content": {
@@ -93,9 +85,7 @@
     },
     "/api/user/full": {
       "get": {
-        "tags": [
-          "SnackDept.ApiService"
-        ],
+        "tags": ["SnackDept.ApiService"],
         "operationId": "SnackDeptApiServiceEndpointsUserGetFullEndpoint",
         "responses": {
           "200": {
@@ -116,9 +106,7 @@
     },
     "/api/dept": {
       "post": {
-        "tags": [
-          "SnackDept.ApiService"
-        ],
+        "tags": ["SnackDept.ApiService"],
         "operationId": "SnackDeptApiServiceEndpointsDeptCreateEndpoint",
         "requestBody": {
           "content": {
@@ -139,9 +127,7 @@
     },
     "/api/dept/{Id}": {
       "delete": {
-        "tags": [
-          "SnackDept.ApiService"
-        ],
+        "tags": ["SnackDept.ApiService"],
         "operationId": "SnackDeptApiServiceEndpointsDeptDeleteEndpoint",
         "responses": {
           "204": {
@@ -150,9 +136,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "SnackDept.ApiService"
-        ],
+        "tags": ["SnackDept.ApiService"],
         "operationId": "SnackDeptApiServiceEndpointsDeptUpdateEndpoint",
         "requestBody": {
           "content": {
@@ -175,9 +159,7 @@
   "components": {
     "schemas": {
       "CreateDeptDto": {
-        "required": [
-          "deptDate"
-        ],
+        "required": ["deptDate"],
         "type": "object",
         "properties": {
           "reason": {
@@ -208,9 +190,7 @@
         }
       },
       "CreateUserDto": {
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "type": "object",
         "properties": {
           "name": {
