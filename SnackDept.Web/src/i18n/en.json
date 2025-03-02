@@ -1,0 +1,54 @@
+{
+  "add": "Add",
+  "amount": "Amount",
+  "back": "Back",
+  "cancel": "Cancel",
+  "close": "Close",
+  "confirm": "Confirm",
+  "confirmDelete": {
+    "header": "Delete Confirmation",
+    "message": "Are you sure you want to delete this record?"
+  },
+  "delete": "Delete",
+  "description": "Description",
+  "edit": "Edit",
+  "error": "Error",
+  "export": "Export",
+  "id": "ID",
+  "info": "Info",
+  "login": {
+    "login": "Login",
+    "loginFailed": "Login failed",
+    "loginInvalid": "Invalid username or password",
+    "password": "Password",
+    "passwordChange": "Change Password",
+    "passwordChangeFailed": "Password change failed",
+    "passwordChangeInvalid": "Invalid password",
+    "passwordChangeSuccess": "Password changed",
+    "passwordOld": "Old Password",
+    "passwordNew": "New Password",
+    "passwordRepeat": "Repeat Password",
+    "passwordRepeatInvalid": "Passwords do not match",
+    "username": "Username",
+    "error": {
+      "noRights": "You do not have the necessary rights to access this page"
+    }
+  },
+  "logout": "Logout",
+  "nameVal": "Name",
+  "noRecordsFound": "No records found",
+  "reason": "Reason",
+  "save": "Save",
+  "success": "Success",
+  "warning": "Warning",
+
+  "dept": {
+    "dept": "Dept",
+    "deptDate": "Dept Date",
+    "redemptionDate": "Redemption Date"
+  },
+  "user": {
+    "user": "User"
+  },
+  "snackDept": "SnackDept"
+}

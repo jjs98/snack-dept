@@ -1,0 +1,54 @@
+{
+  "add": "Hinzufügen",
+  "amount": "Anzahl",
+  "back": "Zurück",
+  "cancel": "Abbrechen",
+  "close": "Schließen",
+  "confirm": "Bestätigen",
+  "confirmDelete": {
+    "header": "Löschbestätigung",
+    "message": "Sind Sie sicher, dass Sie diesen Datensatz löschen möchten?"
+  },
+  "delete": "Löschen",
+  "description": "Beschreibung",
+  "edit": "Bearbeiten",
+  "error": "Fehler",
+  "export": "Exportieren",
+  "info": "Info",
+  "id": "ID",
+  "login": {
+    "login": "Einloggen",
+    "loginFailed": "Login fehlgeschlagen",
+    "loginInvalid": "Ungültiger Benutzername oder Passwort",
+    "password": "Passwort",
+    "passwordChange": "Passwort ändern",
+    "passwordChangeFailed": "Passwortänderung fehlgeschlagen",
+    "passwordChangeInvalid": "Ungültiges Passwort",
+    "passwordChangeSuccess": "Passwort geändert",
+    "passwordOld": "Altes Passwort",
+    "passwordNew": "Neues Passwort",
+    "passwordRepeat": "Passwort wiederholen",
+    "passwordRepeatInvalid": "Passwörter stimmen nicht überein",
+    "username": "Benutzername",
+    "error": {
+      "noRights": "Sie haben nicht die erforderlichen Rechte, um auf diese Seite zuzugreifen"
+    }
+  },
+  "logout": "Ausloggen",
+  "nameVal": "Name",
+  "noRecordsFound": "Keine Datensätze gefunden",
+  "reason": "Grund",
+  "save": "Speichern",
+  "success": "Erfolg",
+  "warning": "Warnung",
+
+  "dept": {
+    "dept": "Schulden",
+    "deptDate": "Schuldendatum",
+    "redemptionDate": "Zurückzahlungsdatum"
+  },
+  "user": {
+    "user": "Benutzer"
+  },
+  "snackDept": "Snack Kasse"
+}

@@ -1,0 +1,54 @@
+<p-card [styleClass]="'overflow-hidden h-full'">
+  <div class="flex flex-col gap-10 overflow-auto">
+    <p-table
+      [value]="userStore.user()"
+      selectionMode="single"
+      class="h-full"
+      [scrollable]="true"
+      scrollHeight="flex"
+    >
+      <ng-template pTemplate="caption">
+        <span>{{ translations.user_user() }}</span>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 25%">{{ translations.id() }}</th>
+          <th style="width: auto">{{ translations.nameVal() }}</th>
+          <th style="width: 5rem">
+            <p-button
+              icon="i-[mdi--plus]"
+              [pTooltip]="translations.add()"
+              [tooltipPosition]="'bottom'"
+              [showDelay]="1000"
+              [rounded]="true"
+            />
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr [pSelectableRow]="user">
+          <td>
+            <span>{{ user.id }}</span>
+          </td>
+          <td>
+            <span>{{ user.name }}</span>
+          </td>
+          <td>
+            <p-button
+              icon="i-[mdi--pencil]"
+              [pTooltip]="translations.edit()"
+              [tooltipPosition]="'bottom'"
+              [showDelay]="1000"
+              [rounded]="true"
+            ></p-button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="4">{{ translations.noRecordsFound() }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</p-card>

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.2302760">
   <PropertyGroup>
-    <StartupCommand>pnpm start</StartupCommand>
+    <StartupCommand>pnpm start:web</StartupCommand>
     <!-- Allows the build (or compile) script located on package.json to run on Build -->
     <ShouldRunBuildScript>true</ShouldRunBuildScript>
     <ShouldRunNpmInstall>false</ShouldRunNpmInstall>
