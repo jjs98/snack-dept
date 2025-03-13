@@ -16,6 +16,8 @@
   "private": true,
   "packageManager": "pnpm@10.5.2",
   "dependencies": {
+    "@angular-architects/ngrx-toolkit": "^19.1.0",
+    "@angular/animations": "^19.2.2",
     "@angular/common": "^19.2.2",
     "@angular/compiler": "^19.2.2",
     "@angular/core": "^19.2.2",

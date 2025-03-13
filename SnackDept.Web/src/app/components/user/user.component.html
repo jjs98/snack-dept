@@ -14,6 +14,7 @@
         <tr>
           <th style="width: 25%">{{ translations.id() }}</th>
           <th style="width: auto">{{ translations.nameVal() }}</th>
+          <th style="width: auto">{{ translations.dept_dept() }}</th>
           <th style="width: 5rem">
             <p-button
               icon="i-[mdi--plus]"
@@ -32,6 +33,9 @@
           </td>
           <td>
             <span>{{ user.name }}</span>
+          </td>
+          <td>
+            <span>{{ getTotalDept(user) }}</span>
           </td>
           <td>
             <p-button

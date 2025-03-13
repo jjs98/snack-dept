@@ -13,6 +13,7 @@ import { TooltipModule } from 'primeng/tooltip';
 
 import { TranslateService } from '../../../services/translate.service';
 import { UserStore } from '../../../store/user.store';
+import { UserDto } from '../../api/models';
 
 @Component({
   selector: 'app-user',
@@ -40,5 +41,9 @@ export class UserComponent implements OnInit {
 
   public async ngOnInit(): Promise<void> {
     await this.userStore.loadUser();
+  }
+
+  protected getTotalDept(user: UserDto): number {
+    return user.depts?.reduce((acc, dept) => acc + (dept?.amount || 0), 0) || 0;
   }
 }
