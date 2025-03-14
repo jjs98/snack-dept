@@ -48,6 +48,24 @@
     "redemptionDate": "Zurückzahlungsdatum"
   },
   "user": {
+    "confirmDelete": {
+      "header": "Benutzer löschen",
+      "message": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?"
+    },
+    "error": {
+      "add": "Fehler beim Hinzufügen des Benutzers",
+      "delete": "Fehler beim Löschen des Benutzers",
+      "determine": "Fehler beim Bestimmen des Benutzers",
+      "load": "Fehler beim Laden des Benutzers",
+      "update": "Fehler beim Aktualisieren des Benutzers"
+    },
+    "success": {
+      "add": "Benutzer erfolgreich hinzugefügt",
+      "delete": "Benutzer erfolgreich gelöscht",
+      "load": "Benutzer erfolgreich geladen",
+      "update": "Benutzer erfolgreich aktualisiert"
+    },
+    "name": "Name",
     "user": "Benutzer"
   },
   "snackDept": "Snack Kasse"

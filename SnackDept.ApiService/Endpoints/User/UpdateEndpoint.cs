@@ -4,7 +4,7 @@ using SnackDept.ApiService.Services;
 
 namespace SnackDept.ApiService.Endpoints.User;
 
-public class UpdateEndpoint(IUserService userService) : Endpoint<CreateUserDto, EmptyResponse>
+public class UpdateEndpoint(IUserService userService) : Endpoint<UpdateUserDto, EmptyResponse>
 {
     public override void Configure()
     {
@@ -13,9 +13,8 @@ public class UpdateEndpoint(IUserService userService) : Endpoint<CreateUserDto, 
         Tags("User");
     }
 
-    public override async Task HandleAsync(CreateUserDto dto, CancellationToken cancellationToken)
+    public override async Task HandleAsync(UpdateUserDto dto, CancellationToken cancellationToken)
     {
-        var userId = Route<int>("Id");
-        await userService.UpdateUser(new Entities.User { Id = userId, Name = dto.Name });
+        await userService.UpdateUser(new Entities.User { Id = dto.Id, Name = dto.Name });
     }
 }

@@ -4,7 +4,7 @@ using SnackDept.ApiService.Services;
 
 namespace SnackDept.ApiService.Endpoints.Dept;
 
-public class UpdateEndpoint(IDeptService deptService) : Endpoint<CreateDeptDto, EmptyResponse>
+public class UpdateEndpoint(IDeptService deptService) : Endpoint<UpdateDeptDto, EmptyResponse>
 {
     public override void Configure()
     {
@@ -13,9 +13,8 @@ public class UpdateEndpoint(IDeptService deptService) : Endpoint<CreateDeptDto, 
         Tags("Dept");
     }
 
-    public override async Task HandleAsync(CreateDeptDto dto, CancellationToken cancellationToken)
+    public override async Task HandleAsync(UpdateDeptDto dto, CancellationToken cancellationToken)
     {
-        var deptId = Route<int>("Id");
-        await deptService.UpdateDept(new Entities.Dept(new DeptDto(dto)) { Id = deptId });
+        await deptService.UpdateDept(new Entities.Dept(new DeptDto(dto)) { Id = dto.Id });
     }
 }

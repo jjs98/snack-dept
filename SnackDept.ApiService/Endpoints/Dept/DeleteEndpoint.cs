@@ -1,9 +1,10 @@
 ﻿using FastEndpoints;
+using SnackDept.ApiService.Dtos.Dept;
 using SnackDept.ApiService.Services;
 
 namespace SnackDept.ApiService.Endpoints.Dept;
 
-public class DeleteEndpoint(IDeptService deptService) : EndpointWithoutRequest<EmptyResponse>
+public class DeleteEndpoint(IDeptService deptService) : Endpoint<DeleteDeptDto>
 {
     public override void Configure()
     {
@@ -12,9 +13,9 @@ public class DeleteEndpoint(IDeptService deptService) : EndpointWithoutRequest<E
         Tags("Dept");
     }
 
-    public override async Task HandleAsync(CancellationToken cancellationToken)
+    public override async Task HandleAsync(DeleteDeptDto dto, CancellationToken cancellationToken)
     {
-        var deptId = Route<int>("Id");
-        await deptService.DeleteDept(deptId);
+        //int id = Route<int>("id");
+        await deptService.DeleteDept(dto.Id);
     }
 }

@@ -48,6 +48,24 @@
     "redemptionDate": "Redemption Date"
   },
   "user": {
+    "confirmDelete": {
+      "header": "Delete User",
+      "message": "Are you sure you want to delete this user?"
+    },
+    "error": {
+      "add": "Error adding user",
+      "delete": "Error deleting user",
+      "determine": "Error determining user",
+      "load": "Error loading user",
+      "update": "Error updating user"
+    },
+    "success": {
+      "add": "User added successfully",
+      "delete": "User deleted successfully",
+      "load": "User loaded successfully",
+      "update": "User updated successfully"
+    },
+    "name": "Name",
     "user": "User"
   },
   "snackDept": "SnackDept"

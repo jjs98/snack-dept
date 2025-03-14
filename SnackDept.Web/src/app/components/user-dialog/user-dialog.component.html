@@ -1,0 +1,55 @@
+<p-dialog
+  header="{{ translations.user_user() }}"
+  [modal]="true"
+  [(visible)]="dialogVisible"
+  [draggable]="false"
+  [resizable]="false"
+  styleClass="w-[23rem]"
+>
+  <div class="flex items-center gap-3 mb-8 mt-8">
+    <span class="i-[mdi--home-map-marker]"></span>
+    <p-floatLabel>
+      <input
+        pInputText
+        id="name"
+        class="flex-auto"
+        [(ngModel)]="name"
+        autocomplete="off"
+        (keypress)="onKeyPress($event)"
+      />
+      <label for="name" class="font-semibold w-6rem">{{ translations.user_name() }}</label>
+    </p-floatLabel>
+  </div>
+  <div class="flex justify-end gap-4">
+    @if (existingUser) {
+      <p-button
+        icon="i-[mdi--delete]"
+        severity="danger"
+        [pTooltip]="translations.delete()"
+        [tooltipPosition]="'bottom'"
+        [showDelay]="1000"
+        [rounded]="true"
+        (onClick)="confirmDeleteUser()"
+      />
+    }
+    <p-button
+      icon="i-[mdi--cancel]"
+      severity="secondary"
+      [pTooltip]="translations.cancel()"
+      [tooltipPosition]="'bottom'"
+      [showDelay]="1000"
+      [rounded]="true"
+      (onClick)="onCancel()"
+    />
+    <p-button
+      icon="i-[mdi--content-save]"
+      severity="success"
+      [pTooltip]="translations.save()"
+      [tooltipPosition]="'bottom'"
+      [showDelay]="1000"
+      [rounded]="true"
+      [disabled]="!name || !hasUserChanged()"
+      (onClick)="onSave()"
+    />
+  </div>
+</p-dialog>

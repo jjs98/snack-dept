@@ -22,6 +22,7 @@
               [tooltipPosition]="'bottom'"
               [showDelay]="1000"
               [rounded]="true"
+              (onClick)="onAddUser()"
             />
           </th>
         </tr>
@@ -44,6 +45,7 @@
               [tooltipPosition]="'bottom'"
               [showDelay]="1000"
               [rounded]="true"
+              (onClick)="onEditUser(user)"
             ></p-button>
           </td>
         </tr>
@@ -56,3 +58,5 @@
     </p-table>
   </div>
 </p-card>
+
+<app-user-dialog></app-user-dialog>

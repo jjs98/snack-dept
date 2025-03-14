@@ -34,7 +34,7 @@ export type SnackDeptApiServiceEndpointsUserGetEndpointApiResponse<TStatus exten
     });
 
 type SnackDeptApiServiceEndpointsUserCreateEndpointStatusCodes =
-  | (204)
+  | (201)
   | (401)
   | (403)
   | (500);
@@ -43,7 +43,7 @@ type SnackDeptApiServiceEndpointsUserCreateEndpointStatusCodes =
  */
 export type SnackDeptApiServiceEndpointsUserCreateEndpointApiResponse<TStatus extends SnackDeptApiServiceEndpointsUserCreateEndpointStatusCodes = SnackDeptApiServiceEndpointsUserCreateEndpointStatusCodes> = (
     | ((HttpResponse<unknown>) & ({
-          status: 204;
+          status: 201;
           ok: true;
         }))
     | ((Omit<HttpErrorResponse, 'error'>) & ({
@@ -158,7 +158,7 @@ export type SnackDeptApiServiceEndpointsUserGetFullEndpointApiResponse<TStatus e
     });
 
 type SnackDeptApiServiceEndpointsDeptCreateEndpointStatusCodes =
-  | (204)
+  | (201)
   | (401)
   | (403)
   | (500);
@@ -167,7 +167,7 @@ type SnackDeptApiServiceEndpointsDeptCreateEndpointStatusCodes =
  */
 export type SnackDeptApiServiceEndpointsDeptCreateEndpointApiResponse<TStatus extends SnackDeptApiServiceEndpointsDeptCreateEndpointStatusCodes = SnackDeptApiServiceEndpointsDeptCreateEndpointStatusCodes> = (
     | ((HttpResponse<unknown>) & ({
-          status: 204;
+          status: 201;
           ok: true;
         }))
     | ((Omit<HttpErrorResponse, 'error'>) & ({

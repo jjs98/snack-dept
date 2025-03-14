@@ -7,7 +7,11 @@ import { RequestBuilder } from '../utils/request-builder';
 
 import type { CreateDeptDto } from '../models/create-dept-dto';
 import type { CreateUserDto } from '../models/create-user-dto';
+import type { DeleteDeptDto } from '../models/delete-dept-dto';
+import type { DeleteUserDto } from '../models/delete-user-dto';
 import type { SnackDeptApiServiceEndpointsDeptCreateEndpointApiResponse, SnackDeptApiServiceEndpointsDeptDeleteEndpointApiResponse, SnackDeptApiServiceEndpointsDeptUpdateEndpointApiResponse, SnackDeptApiServiceEndpointsUserCreateEndpointApiResponse, SnackDeptApiServiceEndpointsUserDeleteEndpointApiResponse, SnackDeptApiServiceEndpointsUserGetEndpointApiResponse, SnackDeptApiServiceEndpointsUserGetFullEndpointApiResponse, SnackDeptApiServiceEndpointsUserUpdateEndpointApiResponse } from '../models/responses/snack-dept-api-service-responses.model';
+import type { UpdateDeptDto } from '../models/update-dept-dto';
+import type { UpdateUserDto } from '../models/update-user-dto';
 import type { AbortablePromise } from '../utils/angular-service.utils';
 
 /**
@@ -18,10 +22,17 @@ type SnackDeptApiServiceEndpointsUserCreateEndpointParams = {
   };
 
 /**
+ * Parameters for operation snackDeptApiServiceEndpointsUserDeleteEndpoint
+ */
+type SnackDeptApiServiceEndpointsUserDeleteEndpointParams = {
+    body: DeleteUserDto;
+  };
+
+/**
  * Parameters for operation snackDeptApiServiceEndpointsUserUpdateEndpoint
  */
 type SnackDeptApiServiceEndpointsUserUpdateEndpointParams = {
-    body: CreateUserDto;
+    body: UpdateUserDto;
   };
 
 /**
@@ -32,10 +43,17 @@ type SnackDeptApiServiceEndpointsDeptCreateEndpointParams = {
   };
 
 /**
+ * Parameters for operation snackDeptApiServiceEndpointsDeptDeleteEndpoint
+ */
+type SnackDeptApiServiceEndpointsDeptDeleteEndpointParams = {
+    body: DeleteDeptDto;
+  };
+
+/**
  * Parameters for operation snackDeptApiServiceEndpointsDeptUpdateEndpoint
  */
 type SnackDeptApiServiceEndpointsDeptUpdateEndpointParams = {
-    body: CreateDeptDto;
+    body: UpdateDeptDto;
   };
 
 @Injectable()
@@ -46,7 +64,7 @@ export class SnackDeptApiServiceService extends ApiBaseService {
   private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_UPDATE_ENDPOINT_PATH = '/api/user/{Id}';
   private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_GET_FULL_ENDPOINT_PATH = '/api/user/full';
   private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_DEPT_CREATE_ENDPOINT_PATH = '/api/dept';
-  private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_DEPT_DELETE_ENDPOINT_PATH = '/api/dept/{Id}';
+  private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_DEPT_DELETE_ENDPOINT_PATH = '/api/dept/{id}';
   private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_DEPT_UPDATE_ENDPOINT_PATH = '/api/dept/{Id}';
 
   public snackDeptApiServiceEndpointsUserGetEndpoint(context?: HttpContext): AbortablePromise<SnackDeptApiServiceEndpointsUserGetEndpointApiResponse> {
@@ -88,8 +106,9 @@ export class SnackDeptApiServiceService extends ApiBaseService {
     )
   }
 
-  public snackDeptApiServiceEndpointsUserDeleteEndpoint(context?: HttpContext): AbortablePromise<SnackDeptApiServiceEndpointsUserDeleteEndpointApiResponse> {
+  public snackDeptApiServiceEndpointsUserDeleteEndpoint(params: SnackDeptApiServiceEndpointsUserDeleteEndpointParams, context?: HttpContext): AbortablePromise<SnackDeptApiServiceEndpointsUserDeleteEndpointApiResponse> {
     const rb = new RequestBuilder(this.rootUrl, SnackDeptApiServiceService.SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_DELETE_ENDPOINT_PATH, 'delete');
+    rb.body(params.body, '*/*');
 
     return waitForResponse<SnackDeptApiServiceEndpointsUserDeleteEndpointApiResponse>(
       this.http.request(rb.build({
@@ -166,8 +185,9 @@ export class SnackDeptApiServiceService extends ApiBaseService {
     )
   }
 
-  public snackDeptApiServiceEndpointsDeptDeleteEndpoint(context?: HttpContext): AbortablePromise<SnackDeptApiServiceEndpointsDeptDeleteEndpointApiResponse> {
+  public snackDeptApiServiceEndpointsDeptDeleteEndpoint(params: SnackDeptApiServiceEndpointsDeptDeleteEndpointParams, context?: HttpContext): AbortablePromise<SnackDeptApiServiceEndpointsDeptDeleteEndpointApiResponse> {
     const rb = new RequestBuilder(this.rootUrl, SnackDeptApiServiceService.SNACK_DEPT_API_SERVICE_ENDPOINTS_DEPT_DELETE_ENDPOINT_PATH, 'delete');
+    rb.body(params.body, '*/*');
 
     return waitForResponse<SnackDeptApiServiceEndpointsDeptDeleteEndpointApiResponse>(
       this.http.request(rb.build({

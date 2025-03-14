@@ -2,7 +2,7 @@
 
 namespace SnackDept.ApiService.Dtos.User;
 
-public class DeleteUserDto
+public class UpdateUserDto : CreateUserDto
 {
     [FromRoute]
     public required int Id { get; set; }
