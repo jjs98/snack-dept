@@ -29,7 +29,6 @@ import { UserDto } from '../../api/models';
     TooltipModule,
   ],
   templateUrl: './user-dialog.component.html',
-  styleUrl: './user-dialog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserDialogComponent {
@@ -126,7 +125,7 @@ export class UserDialogComponent {
       });
       return;
     }
-    const deleted = await this.userStore.deleteUser(userId);
+    const deleted = await this.userStore.deleteUser({ id: userId });
     if (deleted) {
       this.dialogVisible.set(false);
     }
@@ -161,7 +160,7 @@ export class UserDialogComponent {
 
     const successfulUpdated = await this.userStore.updateUser({
       id: user.id ?? -1,
-      name: user.name ?? '',
+      name: this.name ?? '',
     });
     if (successfulUpdated) {
       this.dialogVisible.set(false);

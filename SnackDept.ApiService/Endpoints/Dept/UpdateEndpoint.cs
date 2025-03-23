@@ -4,11 +4,11 @@ using SnackDept.ApiService.Services;
 
 namespace SnackDept.ApiService.Endpoints.Dept;
 
-public class UpdateEndpoint(IDeptService deptService) : Endpoint<UpdateDeptDto, EmptyResponse>
+public class UpdateEndpoint(IDeptService deptService) : Endpoint<UpdateDeptDto>
 {
     public override void Configure()
     {
-        Patch("api/dept/{Id}");
+        Patch("api/dept");
         AllowAnonymous();
         Tags("Dept");
     }

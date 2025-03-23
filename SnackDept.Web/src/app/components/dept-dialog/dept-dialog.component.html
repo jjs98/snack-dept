@@ -1,0 +1,121 @@
+<p-dialog
+  header="{{ translations.user_user() }}"
+  [modal]="true"
+  [(visible)]="dialogVisible"
+  [draggable]="false"
+  [resizable]="false"
+  styleClass="w-[23rem]"
+>
+  <div class="flex items-center gap-3 mb-8 mt-8">
+    <span class="i-[mdi--help]"></span>
+    <p-floatLabel>
+      <input
+        pInputText
+        id="reason"
+        class="flex-auto"
+        [(ngModel)]="reason"
+        autocomplete="off"
+        (keypress)="onKeyPress($event)"
+      />
+      <label for="reason" class="font-semibold w-6rem">{{ translations.reason() }}</label>
+    </p-floatLabel>
+  </div>
+  <div class="flex items-center gap-3 mb-8 mt-8">
+    <span class="i-[mdi--text]"></span>
+    <p-floatLabel>
+      <input
+        pInputText
+        id="description"
+        class="flex-auto"
+        [(ngModel)]="description"
+        autocomplete="off"
+        (keypress)="onKeyPress($event)"
+      />
+      <label for="description" class="font-semibold w-6rem">{{ translations.description() }}</label>
+    </p-floatLabel>
+  </div>
+  <div class="flex items-center gap-3 mb-8 mt-8">
+    <span class="i-[mdi--plus-minus]"></span>
+    <p-floatLabel>
+      <input
+        pInputText
+        id="amount"
+        class="flex-auto"
+        [(ngModel)]="amount"
+        autocomplete="off"
+        (keypress)="onKeyPress($event)"
+      />
+      <label for="amount" class="font-semibold w-6rem">{{ translations.amount() }}</label>
+    </p-floatLabel>
+  </div>
+  <div class="flex items-center gap-3 mb-8">
+    <span class="i-[mdi--calendar]"></span>
+    <p-floatLabel class="w-64">
+      <p-datepicker
+        id="deptDate"
+        [(ngModel)]="deptDate"
+        [showIcon]="true"
+        [showOnFocus]="false"
+        [touchUI]="true"
+        [maxDate]="currentDate"
+        [showTime]="true"
+        [hourFormat]="'24'"
+        appendTo="body"
+        dateFormat="dd.mm.yy"
+      />
+      <label for="deptDate" class="font-semibold w-6rem">{{ translations.dept_deptDate() }}</label>
+    </p-floatLabel>
+  </div>
+  <div class="flex items-center gap-3 mb-8">
+    <span class="i-[mdi--calendar]"></span>
+    <p-floatLabel class="w-64">
+      <p-datepicker
+        id="redemptionDate"
+        [(ngModel)]="redemptionDate"
+        [showIcon]="true"
+        [showOnFocus]="false"
+        [touchUI]="true"
+        [maxDate]="currentDate"
+        [showTime]="true"
+        [hourFormat]="'24'"
+        appendTo="body"
+        dateFormat="dd.mm.yy"
+      />
+      <label for="redemptionDate" class="font-semibold w-6rem">{{
+        translations.dept_redemptionDate()
+      }}</label>
+    </p-floatLabel>
+  </div>
+  <div class="flex justify-end gap-4">
+    @if (existingDept) {
+      <p-button
+        icon="i-[mdi--delete]"
+        severity="danger"
+        [pTooltip]="translations.delete()"
+        [tooltipPosition]="'bottom'"
+        [showDelay]="1000"
+        [rounded]="true"
+        (onClick)="confirmDeleteDept()"
+      />
+    }
+    <p-button
+      icon="i-[mdi--cancel]"
+      severity="secondary"
+      [pTooltip]="translations.cancel()"
+      [tooltipPosition]="'bottom'"
+      [showDelay]="1000"
+      [rounded]="true"
+      (onClick)="onCancel()"
+    />
+    <p-button
+      icon="i-[mdi--content-save]"
+      severity="success"
+      [pTooltip]="translations.save()"
+      [tooltipPosition]="'bottom'"
+      [showDelay]="1000"
+      [rounded]="true"
+      [disabled]="!amount || !userId || !deptDate() || !hasDeptChanged()"
+      (onClick)="onSave()"
+    />
+  </div>
+</p-dialog>

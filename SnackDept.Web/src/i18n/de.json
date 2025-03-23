@@ -39,13 +39,30 @@
   "noRecordsFound": "Keine Datensätze gefunden",
   "reason": "Grund",
   "save": "Speichern",
+  "total": "Gesamt",
   "success": "Erfolg",
   "warning": "Warnung",
 
   "dept": {
+    "confirmDelete": {
+      "header": "Schulden löschen",
+      "message": "Sind Sie sicher, dass Sie diese Schulden löschen möchten?"
+    },
+    "error": {
+      "add": "Fehler beim Hinzufügen der Schulden",
+      "delete": "Fehler beim Löschen der Schulden",
+      "determine": "Fehler beim Bestimmen der Schulden",
+      "update": "Fehler beim Aktualisieren der Schulden"
+    },
     "dept": "Schulden",
     "deptDate": "Schuldendatum",
-    "redemptionDate": "Zurückzahlungsdatum"
+    "from": "Schulden von",
+    "redemptionDate": "Zurückzahlungsdatum",
+    "success": {
+      "add": "Schulden erfolgreich hinzugefügt",
+      "delete": "Schulden erfolgreich gelöscht",
+      "update": "Schulden erfolgreich aktualisiert"
+    }
   },
   "user": {
     "confirmDelete": {

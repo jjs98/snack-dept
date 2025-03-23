@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { RadioButtonModule } from 'primeng/radiobutton';
-import { TableModule } from 'primeng/table';
+import { TableModule, TableRowSelectEvent } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 
 import { TranslateService } from '../../../services/translate.service';
@@ -31,7 +32,6 @@ import { UserDialogComponent } from '../user-dialog/user-dialog.component';
     UserDialogComponent,
   ],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
@@ -39,6 +39,8 @@ export class UserComponent implements OnInit {
   protected readonly userStore = inject(UserStore);
   protected readonly translations = inject(TranslateService).translations;
 
+  private readonly router = inject(Router);
+  private readonly activatedRoute = inject(ActivatedRoute);
   private readonly userDialog = viewChild.required(UserDialogComponent);
 
   public async ngOnInit(): Promise<void> {
@@ -55,5 +57,16 @@ export class UserComponent implements OnInit {
 
   protected onAddUser(): void {
     this.userDialog().showDialog();
+  }
+
+  protected onRowSelect($event: TableRowSelectEvent): void {
+    const user = $event.data as UserDto;
+    if (!user.id) {
+      return;
+    }
+
+    this.router.navigate([`${user.id}`], {
+      relativeTo: this.activatedRoute,
+    });
   }
 }

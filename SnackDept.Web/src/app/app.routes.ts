@@ -1,9 +1,20 @@
 import { Routes } from '@angular/router';
 
+import { UserComponent } from './components/user/user.component';
+
 export const routes: Routes = [
   {
     path: 'user',
-    loadComponent: () => import('./components/user/user.component').then(m => m.UserComponent),
+    children: [
+      {
+        path: '',
+        component: UserComponent,
+      },
+      {
+        path: ':id',
+        loadComponent: () => import('./components/dept/dept.component').then(m => m.DeptComponent),
+      },
+    ],
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: 'user', pathMatch: 'full' },
 ];

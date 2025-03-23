@@ -11,7 +11,11 @@ export async function main(): Promise<void> {
       typeNameCasing: { casing: 'pascal' },
       immutableTypes: false,
     })
-    .useType(TypeScriptAngularServicesGenerator, { provideKind: 'provide-fn' })
+    .useType(TypeScriptAngularServicesGenerator, {
+      provideKind: 'provide-fn',
+      defaultRequestContentType: 'application/json',
+      defaultSuccessResponseContentType: 'application/json',
+    })
     .parseAndGenerate(path.join(__dirname, 'v1.json'));
 }
 

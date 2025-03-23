@@ -77,4 +77,10 @@
   .p-dialog .p-dialog-content {
     padding: 0 1.5rem 1.5rem 1.5rem;
   }
+
+  .p-datepicker-panel {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%);
+  }
 }

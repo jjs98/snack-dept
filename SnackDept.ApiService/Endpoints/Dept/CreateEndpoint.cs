@@ -17,6 +17,6 @@ public class CreateEndpoint(IDeptService deptService) : Endpoint<CreateDeptDto, 
     public override async Task HandleAsync(CreateDeptDto dto, CancellationToken cancellationToken)
     {
         await deptService.CreateDept(new Entities.Dept(new DeptDto(dto)));
-        await SendCreatedAtAsync("", null, Response, cancellation: cancellationToken);
+        await SendCreatedAtAsync("", null, null, cancellation: cancellationToken);
     }
 }

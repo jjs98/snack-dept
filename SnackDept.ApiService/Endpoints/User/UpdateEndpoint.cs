@@ -4,11 +4,11 @@ using SnackDept.ApiService.Services;
 
 namespace SnackDept.ApiService.Endpoints.User;
 
-public class UpdateEndpoint(IUserService userService) : Endpoint<UpdateUserDto, EmptyResponse>
+public class UpdateEndpoint(IUserService userService) : Endpoint<UpdateUserDto>
 {
     public override void Configure()
     {
-        Patch("api/user/{Id}");
+        Patch("api/user");
         AllowAnonymous();
         Tags("User");
     }

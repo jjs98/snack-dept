@@ -3,7 +3,15 @@ import { withDevtools, withStorageSync } from '@angular-architects/ngrx-toolkit'
 import { signalState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { MessageService } from 'primeng/api';
 
-import { UserDto, CreateUserDto, UpdateUserDto } from '../app/api/models';
+import {
+  UserDto,
+  CreateUserDto,
+  UpdateUserDto,
+  DeleteUserDto,
+  CreateDeptDto,
+  UpdateDeptDto,
+  DeleteDeptDto,
+} from '../app/api/models';
 import { SnackDeptApiServiceService } from '../app/api/services';
 import { TranslateService } from '../services/translate.service';
 import { patch } from '../utils/data-store.utils';
@@ -44,9 +52,9 @@ export const UserStore = signalStore(
           });
         }
       },
-      async addUser(user: CreateUserDto): Promise<boolean> {
+      async addUser(createUserDto: CreateUserDto): Promise<boolean> {
         const response = await snackService.snackDeptApiServiceEndpointsUserCreateEndpoint({
-          body: user,
+          body: createUserDto,
         });
         if (response.status === 201) {
           this.loadUser();
@@ -65,9 +73,9 @@ export const UserStore = signalStore(
           return false;
         }
       },
-      async updateUser(user: UpdateUserDto): Promise<boolean> {
+      async updateUser(updateUserDto: UpdateUserDto): Promise<boolean> {
         const response = await snackService.snackDeptApiServiceEndpointsUserUpdateEndpoint({
-          body: { id: user.id, name: user.name },
+          body: updateUserDto,
         });
         if (response.status === 204) {
           this.loadUser();
@@ -86,9 +94,9 @@ export const UserStore = signalStore(
           return false;
         }
       },
-      async deleteUser(id: number): Promise<boolean> {
+      async deleteUser(deleteUserDto: DeleteUserDto): Promise<boolean> {
         const response = await snackService.snackDeptApiServiceEndpointsUserDeleteEndpoint({
-          body: { id },
+          body: deleteUserDto,
         });
         if (response.status === 204) {
           this.loadUser();
@@ -103,6 +111,69 @@ export const UserStore = signalStore(
             severity: 'error',
             summary: 'Error',
             detail: translations.user_error_delete(),
+          });
+          return false;
+        }
+      },
+      async addDept(createDeptDto: CreateDeptDto): Promise<boolean> {
+        const response = await snackService.snackDeptApiServiceEndpointsDeptCreateEndpoint({
+          body: createDeptDto,
+        });
+        if (response.status === 201) {
+          this.loadUser();
+          messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: translations.dept_success_add(),
+          });
+          return true;
+        } else {
+          messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: translations.dept_error_add(),
+          });
+          return false;
+        }
+      },
+      async updateDept(updateDeptDto: UpdateDeptDto): Promise<boolean> {
+        const response = await snackService.snackDeptApiServiceEndpointsDeptUpdateEndpoint({
+          body: updateDeptDto,
+        });
+        if (response.status === 204) {
+          this.loadUser();
+          messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: translations.dept_success_update(),
+          });
+          return true;
+        } else {
+          messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: translations.dept_error_update(),
+          });
+          return false;
+        }
+      },
+      async deleteDept(deleteDeptDto: DeleteDeptDto): Promise<boolean> {
+        const response = await snackService.snackDeptApiServiceEndpointsDeptDeleteEndpoint({
+          body: deleteDeptDto,
+        });
+        if (response.status === 204) {
+          this.loadUser();
+          messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: translations.dept_success_delete(),
+          });
+          return true;
+        } else {
+          messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: translations.dept_error_delete(),
           });
           return false;
         }

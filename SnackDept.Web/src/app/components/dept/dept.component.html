@@ -1,21 +1,34 @@
 <p-card [styleClass]="'overflow-hidden h-full'">
   <div class="flex flex-col gap-10 overflow-auto">
+    <div class="h-2/5 flex flex-col">
+      <div class="flex mb-4 items-center gap-4">
+        <p-button
+          (onClick)="navigateBack()"
+          icon="i-[mdi--arrow-left]"
+          [pTooltip]="translations.back()"
+          [tooltipPosition]="'bottom'"
+          [showDelay]="1000"
+          [rounded]="true"
+        ></p-button>
+
+        <span>{{ translations.dept_from() }} {{ user()?.name }} </span>
+      </div>
+    </div>
     <p-table
-      [value]="userStore.user()"
+      [value]="depts()"
       selectionMode="single"
       class="h-full"
       [scrollable]="true"
       scrollHeight="flex"
-      (onRowSelect)="onRowSelect($event)"
     >
       <ng-template pTemplate="caption">
-        <span>{{ translations.user_user() }}</span>
+        <span>{{ translations.total() }}: {{ getTotalDept() }}</span>
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th style="width: 25%">{{ translations.id() }}</th>
-          <th style="width: auto">{{ translations.nameVal() }}</th>
-          <th style="width: auto">{{ translations.dept_dept() }}</th>
+          <th style="width: 25%">{{ translations.amount() }}</th>
+          <th style="width: auto">{{ translations.dept_deptDate() }}</th>
+          <th style="width: auto">{{ translations.dept_redemptionDate() }}</th>
           <th style="width: 5rem">
             <p-button
               icon="i-[mdi--plus]"
@@ -23,21 +36,21 @@
               [tooltipPosition]="'bottom'"
               [showDelay]="1000"
               [rounded]="true"
-              (onClick)="onAddUser()"
+              (onClick)="onAddDept()"
             />
           </th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-user>
-        <tr [pSelectableRow]="user">
+      <ng-template pTemplate="body" let-dept>
+        <tr [pSelectableRow]="dept">
           <td>
-            <span>{{ user.id }}</span>
+            <span>{{ dept.amount }}</span>
           </td>
           <td>
-            <span>{{ user.name }}</span>
+            <span>{{ dept.deptDate | date: 'dd.MM.yyyy HH:mm' }} Uhr</span>
           </td>
           <td>
-            <span>{{ getTotalDept(user) }}</span>
+            <span>{{ dept.redemptionDate | date: 'dd.MM.yyyy HH:mm' }}</span>
           </td>
           <td>
             <p-button
@@ -46,7 +59,7 @@
               [tooltipPosition]="'bottom'"
               [showDelay]="1000"
               [rounded]="true"
-              (onClick)="onEditUser(user)"
+              (onClick)="onEditDept(dept)"
             ></p-button>
           </td>
         </tr>
@@ -60,4 +73,4 @@
   </div>
 </p-card>
 
-<app-user-dialog></app-user-dialog>
+<app-dept-dialog></app-dept-dialog>

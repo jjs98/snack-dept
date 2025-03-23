@@ -8,7 +8,7 @@ public class DeleteEndpoint(IUserService userService) : Endpoint<DeleteUserDto>
 {
     public override void Configure()
     {
-        Delete("api/user/{Id}");
+        Delete("api/user");
         AllowAnonymous();
         Tags("User");
     }

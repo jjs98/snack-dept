@@ -60,12 +60,12 @@ type SnackDeptApiServiceEndpointsDeptUpdateEndpointParams = {
 export class SnackDeptApiServiceService extends ApiBaseService {
   private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_GET_ENDPOINT_PATH = '/api/user';
   private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_CREATE_ENDPOINT_PATH = '/api/user';
-  private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_DELETE_ENDPOINT_PATH = '/api/user/{Id}';
-  private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_UPDATE_ENDPOINT_PATH = '/api/user/{Id}';
+  private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_DELETE_ENDPOINT_PATH = '/api/user';
+  private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_UPDATE_ENDPOINT_PATH = '/api/user';
   private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_GET_FULL_ENDPOINT_PATH = '/api/user/full';
   private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_DEPT_CREATE_ENDPOINT_PATH = '/api/dept';
-  private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_DEPT_DELETE_ENDPOINT_PATH = '/api/dept/{id}';
-  private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_DEPT_UPDATE_ENDPOINT_PATH = '/api/dept/{Id}';
+  private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_DEPT_DELETE_ENDPOINT_PATH = '/api/dept';
+  private static readonly SNACK_DEPT_API_SERVICE_ENDPOINTS_DEPT_UPDATE_ENDPOINT_PATH = '/api/dept';
 
   public snackDeptApiServiceEndpointsUserGetEndpoint(context?: HttpContext): AbortablePromise<SnackDeptApiServiceEndpointsUserGetEndpointApiResponse> {
     const rb = new RequestBuilder(this.rootUrl, SnackDeptApiServiceService.SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_GET_ENDPOINT_PATH, 'get');
@@ -108,7 +108,7 @@ export class SnackDeptApiServiceService extends ApiBaseService {
 
   public snackDeptApiServiceEndpointsUserDeleteEndpoint(params: SnackDeptApiServiceEndpointsUserDeleteEndpointParams, context?: HttpContext): AbortablePromise<SnackDeptApiServiceEndpointsUserDeleteEndpointApiResponse> {
     const rb = new RequestBuilder(this.rootUrl, SnackDeptApiServiceService.SNACK_DEPT_API_SERVICE_ENDPOINTS_USER_DELETE_ENDPOINT_PATH, 'delete');
-    rb.body(params.body, '*/*');
+    rb.body(params.body, 'application/json');
 
     return waitForResponse<SnackDeptApiServiceEndpointsUserDeleteEndpointApiResponse>(
       this.http.request(rb.build({
@@ -187,7 +187,7 @@ export class SnackDeptApiServiceService extends ApiBaseService {
 
   public snackDeptApiServiceEndpointsDeptDeleteEndpoint(params: SnackDeptApiServiceEndpointsDeptDeleteEndpointParams, context?: HttpContext): AbortablePromise<SnackDeptApiServiceEndpointsDeptDeleteEndpointApiResponse> {
     const rb = new RequestBuilder(this.rootUrl, SnackDeptApiServiceService.SNACK_DEPT_API_SERVICE_ENDPOINTS_DEPT_DELETE_ENDPOINT_PATH, 'delete');
-    rb.body(params.body, '*/*');
+    rb.body(params.body, 'application/json');
 
     return waitForResponse<SnackDeptApiServiceEndpointsDeptDeleteEndpointApiResponse>(
       this.http.request(rb.build({
