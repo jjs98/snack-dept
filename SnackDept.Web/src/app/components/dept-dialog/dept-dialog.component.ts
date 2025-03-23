@@ -8,6 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { DatePickerModule } from 'primeng/datepicker';
 import { DialogModule } from 'primeng/dialog';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { ListboxModule } from 'primeng/listbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
@@ -27,6 +28,7 @@ import { DeptDto } from '../../api/models';
     DialogModule,
     FloatLabelModule,
     FormsModule,
+    InputNumberModule,
     InputTextModule,
     ListboxModule,
     RadioButtonModule,
