@@ -401,3 +401,10 @@ FodyWeavers.xsd
 
 # Blazor WebAssembly
 **/wwwroot/
+
+# Aspire8
+SnackDept.AppHost/aspirate-output/*
+SnackDept.AppHost/aspirate.json
+SnackDept.AppHost/aspirate-state.json
+SnackDept.AppHost/aspire-manifest.json
+SnackDept.AppHost/manifest.json
