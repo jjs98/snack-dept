@@ -73,6 +73,10 @@ export class DeptComponent {
     return this.user()?.depts?.reduce((acc, dept) => acc + (dept?.amount || 0), 0) || 0;
   }
 
+  protected getOpenDept(): number {
+    return this.user()?.depts?.reduce((acc, dept) => acc + ((dept?.redemptionDate || dept?.redemptionDate != null) ? 0 : dept?.amount || 0), 0) || 0;
+  }
+
   protected onEditDept(dept: DeptDto): void {
     this.deptDialog().showDialog(dept);
   }

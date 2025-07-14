@@ -48,7 +48,7 @@ export class UserComponent implements OnInit {
   }
 
   protected getTotalDept(user: UserDto): number {
-    return user.depts?.reduce((acc, dept) => acc + (dept?.amount || 0), 0) || 0;
+    return user.depts?.reduce((acc, dept) => acc + ((dept?.redemptionDate || dept?.redemptionDate != null) ? 0: dept?.amount || 0), 0) || 0;
   }
 
   protected onEditUser(user: UserDto): void {
